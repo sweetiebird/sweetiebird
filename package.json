@@ -4,7 +4,37 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean-build": "rimraf dist/",
+    "build-common": "babel common --out-dir dist/common",
+    "build-api": "babel api --out-dir dist/api && babel index.js --out-file dist/index.js",
+    "build-dev": "webpack --progress --colors --config config/webpack.config",
+    "build-production-client": "cross-env NODE_ENV=production webpack --config config/webpack.config.prod",
+    "build-production": "npm run clean-build && npm run build-production-client && npm run build-api && npm run build-common",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --host 0.0.0.0 & \n npm run start-dev",
+    "lint": "./node_modules/.bin/eslint --fix config/webpack.*.js client/**/*.js api/**/*.js bin/**/*.js test/**/*.js common/**/*.js",
+    "start": "node dist/index.js",
+    "start-dev": "cross-env NODE_ENV=development nodemon index.js --config config/nodemon.json --exec 'npm run lint && babel-node'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "test": "npm run test:unit && npm run test:ui",
+    "test:unit": "npm run test:api:unit && npm run test:common:unit && npm run test:client:unit",
+    "test:api:unit": "mocha --recursive --compilers js:babel-core/register --require babel-polyfill test/api/**/*.js",
+    "test:common:unit": "mocha --recursive --compilers js:babel-core/register --require babel-polyfill test/common/**/*.js",
+    "test:client:unit": "mocha --recursive --compilers js:babel-core/register --require babel-polyfill test/client/unit/**/*.js",
+    "test:ui": "jest"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|png|svg)$": "<rootDir>/test/client/__utils__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy",
+      "SvgInject": "<rootDir>/test/client/__utils__/componentMock.js"
+    },
+    "setupFiles": [
+      "jest-localstorage-mock",
+      "./test/client/__utils__/requestAnimationFrame.js",
+      "./test/client/__utils__/enzymeConfig.js",
+      "./test/client/__utils__/mockDate.js"
+    ]
   },
   "author": "",
   "license": "ISC"

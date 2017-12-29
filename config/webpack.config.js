@@ -44,7 +44,7 @@ config.devServer = {
 config.plugins = [
   new webpack.HotModuleReplacementPlugin(), // enable HMR globally
   new webpack.NamedModulesPlugin(),
-  new HtmlWebpackPlugin({  // also generate an index.html
+  new HtmlWebpackPlugin({ // also generate an index.html
     filename: 'index.html',
     template: 'client/static/html/index.ejs',
   }),

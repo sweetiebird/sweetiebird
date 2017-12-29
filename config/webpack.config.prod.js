@@ -41,7 +41,7 @@ config.plugins = [
     },
     sourceMap: true,
   }),
-  new HtmlWebpackPlugin({  // also generate an index.html
+  new HtmlWebpackPlugin({ // also generate an index.html
     filename: 'index.html',
     template: 'client/static/html/index.ejs',
   }),

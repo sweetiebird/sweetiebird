@@ -1,4 +1,5 @@
 import { call, fork, put, take } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 
 import * as actions from './actions';
 import * as api from './api';
@@ -27,6 +28,7 @@ function* requestLogin(username, password) {
       yield put(actions.loginFailure(response.error));
     } else {
       const { data } = response.data;
+      yield call(delay, 2000);
       yield put(actions.loginSuccess(data));
     }
   } catch (error) {

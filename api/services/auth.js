@@ -1,8 +1,6 @@
 class AuthService {
-  static async authenticate(username, password) {
-    return {
-      user: username,
-    };
+  static async authenticate(user, password) {
+    return user;
   }
 }
 

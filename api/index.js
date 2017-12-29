@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
 // routers
-import routes from './routes';
+import router from './routes';
 
 // ===========
 // express
@@ -44,7 +44,7 @@ module.exports = () => {
   }));
 
   // register route handlers
-  app.use('/api', routes);
+  app.use('/api', router);
 
   // serve the index.html over all unmatched Routes.js
   app.get('*', (req, res) => {

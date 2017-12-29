@@ -7,6 +7,11 @@
     ["babel-plugin-transform-builtin-extend", {
       "globals": ["Error"]
     }],
+    ["module-resolver", {
+      "alias": {
+        "modules": "./client/modules"
+      }
+    }],
     "react-hot-loader/babel",
     "transform-runtime",
     "transform-object-rest-spread"

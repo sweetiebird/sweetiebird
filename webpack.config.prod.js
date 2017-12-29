@@ -7,8 +7,8 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
-const DIST_FOLDER = path.join(__dirname, '../dist/public');
-const SRC_FOLDER = path.join(__dirname, '../client');
+const DIST_FOLDER = path.join(__dirname, 'dist/public');
+const SRC_FOLDER = path.join(__dirname, 'client');
 
 const config = require('./webpack.config.base');
 

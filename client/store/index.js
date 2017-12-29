@@ -13,11 +13,7 @@ export default function configureStore() {
   const store = createStore(
     rootReducer,
     {},
-    composeEnhancers(
-      applyMiddleware(
-        ...middleware,
-      ),
-    ),
+    composeEnhancers(applyMiddleware(...middleware)),
   );
 
   sagaMiddleware.run(rootSaga);

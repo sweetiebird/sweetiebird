@@ -5,8 +5,8 @@
 
 const path = require('path');
 
-const SRC_FOLDER = path.join(__dirname, '../client');
-const DIST_FOLDER = path.join(__dirname, '../public');
+const SRC_FOLDER = path.join(__dirname, 'client');
+const DIST_FOLDER = path.join(__dirname, 'public');
 
 module.exports = {
   entry: {
@@ -44,7 +44,7 @@ module.exports = {
         loader: 'eslint-loader',
         enforce: 'pre',
         query: {
-          configFile: '../.eslintrc',
+          configFile: './.eslintrc',
         },
       },
     ],

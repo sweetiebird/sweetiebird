@@ -6,7 +6,7 @@
   "scripts": {
     "clean-build": "rimraf dist/",
     "build-common": "babel common --out-dir dist/common",
-    "build-api": "babel api --out-dir dist/api && babel index.js --out-file dist/index.js && cp sweetiebird.json dist/sweetiebird.json",
+    "build-api": "babel api --out-dir dist/api && babel index.js --out-file dist/index.js && cp sweetiebird.json dist/sweetiebird.json && cp .env dist/.env",
     "build-dev": "webpack --progress --colors --config webpack.config",
     "build-production-client": "cross-env NODE_ENV=production webpack --config webpack.config.prod",
     "build": "npm run clean-build && npm run build-production-client && npm run build-api && npm run build-common",

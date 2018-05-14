@@ -37,7 +37,7 @@
     ]
   },
   "author": "Emily Kolar",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",

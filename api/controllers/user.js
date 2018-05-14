@@ -9,7 +9,8 @@ class UserController {
 
   static async publicGetUser(req, res) {
     const { userId } = req.params;
-    return res.json(config);
+    const purchases = await FirebaseService.getUserPurchases(userId);
+    SuccessResponse(res, purchases);
   }
 
   // api routes

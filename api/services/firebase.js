@@ -26,6 +26,17 @@ function initDatabase() {
 }
 
 class FirebaseService {
+  static async getUserPurchases(userId) {
+    initDatabase();
+
+    try {
+      const snapshot = await db.ref(`/users/${userId}/purchases`).once('value');
+      return snapshot.val();
+    } catch (e) {
+      throw e;
+    }
+  }
+
   static async saveUserPurchase(userId, purchase, product, guid) {
     const purchaseId = await FirebaseService.savePurchase(purchase, product, guid);
     await db.ref(`/users/${userId}/purchases`).push({ payment: purchase, product, guid });

@@ -57,6 +57,7 @@
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "prop-types": "^15.6.0",
+    "query-string": "^6.1.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.6",

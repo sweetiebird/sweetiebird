@@ -26,3 +26,30 @@ export function productFailure(message) {
     },
   };
 }
+
+export function saveUserPayment(userId, payment, product, guid) {
+  return {
+    type: constants.SAVE_USER_PAYMENT_REQUEST,
+    payload: {
+      userId,
+      payment,
+      product,
+      guid,
+    },
+  };
+}
+
+export function saveUserPaymentSuccess() {
+  return {
+    type: constants.SAVE_USER_PAYMENT_SUCCESS,
+  };
+}
+
+export function saveUserPaymentFailure(message) {
+  return {
+    type: constants.SAVE_USER_PAYMENT_FAILURE,
+    payload: {
+      message,
+    },
+  };
+}

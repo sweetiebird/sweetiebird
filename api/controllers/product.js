@@ -1,5 +1,5 @@
 import { SuccessResponse } from '../utils';
-import { ProductService, FirebaseService } from '../services';
+import { ProductService } from '../services';
 
 class ProductController {
   static async getProduct(req, res) {

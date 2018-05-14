@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import * as selectors from '../../selectors';
-import { requestProduct } from '../../actions';
+import { requestProduct, saveUserPayment } from '../../actions';
 
 import presenter from './presenter';
 
@@ -13,6 +13,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = {
   requestProduct,
+  saveUserPayment,
 };
 
 export default connect(

@@ -1,4 +1,4 @@
 export default {
   src: '',
-  alt: '',
+  autoplay: 0,
 };

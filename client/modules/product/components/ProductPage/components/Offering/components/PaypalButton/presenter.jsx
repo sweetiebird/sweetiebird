@@ -6,7 +6,7 @@ import styles from './styles.css';
 
 class PaypalButton extends React.Component {
   componentDidMount() {
-    const { amount, id } = this.props;
+    const { amount, id, onSuccess } = this.props;
     const paypal = window.paypal;
 
     if (paypal) {
@@ -35,9 +35,7 @@ class PaypalButton extends React.Component {
         },
         onAuthorize: function(data, actions) {
           return actions.payment.execute().then(function(payment) {
-            // The payment is complete!
-            // You can now show a confirmation message to the customer
-            console.log(payment);
+            onSuccess(payment);
           });
         },
         onCancel: function(data, actions) {
@@ -46,9 +44,7 @@ class PaypalButton extends React.Component {
            */
         },
         onError: function(err) {
-          /*
-           * An error occurred during the transaction
-           */
+          console.log(err);
         }
       }, `#${id}`);
     }

@@ -4,7 +4,7 @@ import admin from 'firebase-admin';
 // to circumvent this we have an init function for the database, called later
 let db;
 function initDatabase() {
-  if (db) return;
+  if (db !== undefined) return;
 
   const privateKey = process.env.FB_SERVICE_ACCOUNT;
 
@@ -26,10 +26,18 @@ function initDatabase() {
 }
 
 class FirebaseService {
-  static async getTest() {
+  static async saveUserPurchase(userId, purchase, product, guid) {
+    const purchaseId = await FirebaseService.savePurchase(purchase, product, guid);
+    await db.ref(`/users/${userId}/purchases`).push({ payment: purchase, product, guid });
+  }
+
+  static async savePurchase(purchase, product, guid) {
     initDatabase();
-    const snapshot = await db.ref('test').once('value');
-    return snapshot.val();
+
+    const newPurchaseKey = db.ref('purchases').push().key;
+    await db.ref(`/purchases/${newPurchaseKey}`).update({ payment: purchase, product, guid });
+
+    return newPurchaseKey;
   }
 }
 

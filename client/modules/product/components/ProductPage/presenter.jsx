@@ -4,7 +4,7 @@ import propTypes from './prop-types';
 import defaultProps from './default-props';
 import styles from './styles.css';
 
-import { Offering } from './components';
+import { Offering, Carousel } from './components';
 
 class ProductPage extends React.Component {
   componentDidMount() {
@@ -19,6 +19,7 @@ class ProductPage extends React.Component {
     return (
       <div className={styles.productPage}>
         <h1>{product.title}</h1>
+        <Carousel images={product.screenshots} />
         <p>{product.description}</p>
         <h3>Offerings:</h3>
         {product.offerings !== undefined &&product.offerings.map((offering, idx) => (

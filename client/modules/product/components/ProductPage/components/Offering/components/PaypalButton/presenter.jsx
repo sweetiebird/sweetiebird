@@ -11,7 +11,7 @@ class PaypalButton extends React.Component {
 
     if (paypal) {
       paypal.Button.render({
-        env: process.env.PP_ENV, // Or 'sandbox',
+        env: process.env.PP_ENV,
         client: {
           sandbox: process.env.PP_CLIENT_SANDBOX,
           production: process.env.PP_CLIENT_LIVE,
@@ -19,7 +19,8 @@ class PaypalButton extends React.Component {
         commit: true, // Show a 'Pay Now' button
         style: {
           color: 'gold',
-          size: 'small'
+          size: 'small',
+          label: 'paypal'
         },
         payment: function(data, actions) {
           return actions.payment.create({

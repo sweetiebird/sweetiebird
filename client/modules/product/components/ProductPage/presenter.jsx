@@ -4,6 +4,8 @@ import propTypes from './prop-types';
 import defaultProps from './default-props';
 import styles from './styles.css';
 
+import { Offering } from './components';
+
 class ProductPage extends React.Component {
   componentDidMount() {
     const { requestProduct, match } = this.props;
@@ -18,6 +20,14 @@ class ProductPage extends React.Component {
       <div className={styles.productPage}>
         <h1>{product.title}</h1>
         <p>{product.description}</p>
+        <h3>Offerings:</h3>
+        {product.offerings !== undefined &&product.offerings.map((offering, idx) => (
+          <Offering
+            offeringIndex={idx}
+            title={offering.title}
+            price={offering.price}
+            key={`offering-${idx}`} />
+        ))}
       </div>
     );
   }

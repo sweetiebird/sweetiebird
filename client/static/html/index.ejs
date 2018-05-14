@@ -14,50 +14,5 @@
     <div id="app-root"></div>
     <div id="modal-root"></div>
     <div id="paypal-button"></div>
-<script>
-  paypal.Button.render({
-    env: 'sandbox', // Or 'sandbox',
-    client: {
-      sandbox: 'Af9lKt1UI_oRIYUXG3UPR5fFbrLy-mvSnFsyuBaXAX48-Diu4HQS6jzMhSK4UqIrNPQb7SY7VsweodqX',
-    },
-
-    commit: true, // Show a 'Pay Now' button
-
-    style: {
-      color: 'gold',
-      size: 'small'
-    },
-
-    payment: function(data, actions) {
-      return actions.payment.create({
-        payment: {
-          transactions: [
-            {
-              amount: { total: '1.00', currency: 'USD' }
-            }
-          ]
-        }
-      });
-    },
-
-    onAuthorize: function(data, actions) {
-      /*
-       * Execute the payment here
-       */
-    },
-
-    onCancel: function(data, actions) {
-      /*
-       * Buyer cancelled the payment
-       */
-    },
-
-    onError: function(err) {
-      /*
-       * An error occurred during the transaction
-       */
-    }
-  }, '#paypal-button');
-</script>
 </body>
 </html>

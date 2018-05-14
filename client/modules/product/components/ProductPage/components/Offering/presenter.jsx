@@ -1,0 +1,32 @@
+import React from 'react';
+
+import propTypes from './prop-types';
+import defaultProps from './default-props';
+import styles from './styles.css';
+
+import { PaypalButton } from './components';
+
+class Offering extends React.Component {
+  render() {
+    const { price, title, offeringIndex } = this.props;
+    const paypalAmount = price.split(' USD')[0].split('$')[1];
+    const paypalId = `paypal-button-${offeringIndex}`;
+
+    return (
+      <React.Fragment>
+        <div className={styles.offering}>
+          <p>{title}</p>
+          <p>{price}</p>
+          <PaypalButton id={paypalId} amount={paypalAmount} />
+        </div>
+        <hr />
+      </React.Fragment>
+    );
+  }
+}
+
+Offering.propTypes = propTypes;
+
+Offering.defaultProps = defaultProps;
+
+export default Offering;

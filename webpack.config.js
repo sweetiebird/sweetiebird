@@ -43,6 +43,14 @@ config.devServer = {
 };
 
 config.plugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('development'),
+      PP_ENV: JSON.stringify('sandbox'),
+      PP_CLIENT_LIVE: JSON.stringify('AbjgusokjrXEOP7_a-onPaAjmhgM647Azu5-9zxCzqBFkb-UNsB_xbjdQYaKxfMSLDhGpJZmrD5iYuMG'),
+      PP_CLIENT_SANDBOX: JSON.stringify('Af9lKt1UI_oRIYUXG3UPR5fFbrLy-mvSnFsyuBaXAX48-Diu4HQS6jzMhSK4UqIrNPQb7SY7VsweodqX'),
+    },
+  }),
   new webpack.HotModuleReplacementPlugin(), // enable HMR globally
   new webpack.NamedModulesPlugin(),
   new HtmlWebpackPlugin({ // also generate an index.html

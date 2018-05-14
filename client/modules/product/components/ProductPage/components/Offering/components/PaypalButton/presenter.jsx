@@ -11,9 +11,10 @@ class PaypalButton extends React.Component {
 
     if (paypal) {
       paypal.Button.render({
-        env: 'sandbox', // Or 'sandbox',
+        env: process.env.PP_ENV, // Or 'sandbox',
         client: {
-          sandbox: 'Af9lKt1UI_oRIYUXG3UPR5fFbrLy-mvSnFsyuBaXAX48-Diu4HQS6jzMhSK4UqIrNPQb7SY7VsweodqX',
+          sandbox: process.env.PP_CLIENT_SANDBOX,
+          production: process.env.PP_CLIENT_LIVE,
         },
         commit: true, // Show a 'Pay Now' button
         style: {
@@ -32,9 +33,11 @@ class PaypalButton extends React.Component {
           });
         },
         onAuthorize: function(data, actions) {
-          /*
-           * Execute the payment here
-           */
+          return actions.payment.execute().then(function(payment) {
+            // The payment is complete!
+            // You can now show a confirmation message to the customer
+            console.log(payment);
+          });
         },
         onCancel: function(data, actions) {
           /*

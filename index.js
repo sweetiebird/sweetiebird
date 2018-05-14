@@ -1,5 +1,7 @@
 import express from './api';
 
+require('dotenv').load();
+
 const app = express();
 
 const port = process.env.PORT || 3000;

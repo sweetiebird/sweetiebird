@@ -1,11 +1,11 @@
 import { SuccessResponse } from '../utils';
-import { ProductService } from '../services';
+import { ProductService, FirebaseService } from '../services';
 
 class ProductController {
   static async getProduct(req, res) {
     const { productId } = req.params;
     const prodConfig = await ProductService.getProductConfig(productId);
-
+    const testVal = await FirebaseService.getTest();
     return SuccessResponse(res, prodConfig);
   }
 }

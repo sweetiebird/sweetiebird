@@ -62,3 +62,7 @@ typings/
 
 # builds
 dist/
+
+# secrets
+sweetiebird-firebase.json
+sweetiebird-key.json

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if IE]>
+    <meta name="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <link rel="icon" type="image/ico" sizes="16x16" href="http://direct.smilebasicsource.com/main/favicon.ico" />
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+</head>
+<body>
+    <div id="app-root"></div>
+    <div id="modal-root"></div>
+    <div id="paypal-button"></div>
+<script>
+  paypal.Button.render({
+    env: 'sandbox', // Or 'sandbox',
+    client: {
+      sandbox: 'Af9lKt1UI_oRIYUXG3UPR5fFbrLy-mvSnFsyuBaXAX48-Diu4HQS6jzMhSK4UqIrNPQb7SY7VsweodqX',
+    },
+
+    commit: true, // Show a 'Pay Now' button
+
+    style: {
+      color: 'gold',
+      size: 'small'
+    },
+
+    payment: function(data, actions) {
+      return actions.payment.create({
+        payment: {
+          transactions: [
+            {
+              amount: { total: '1.00', currency: 'USD' }
+            }
+          ]
+        }
+      });
+    },
+
+    onAuthorize: function(data, actions) {
+      /*
+       * Execute the payment here
+       */
+    },
+
+    onCancel: function(data, actions) {
+      /*
+       * Buyer cancelled the payment
+       */
+    },
+
+    onError: function(err) {
+      /*
+       * An error occurred during the transaction
+       */
+    }
+  }, '#paypal-button');
+</script>
+<script type="text/javascript" src="/dist/runtime.17f482cd7634088c872d.js"></script><script type="text/javascript" src="/dist/vendor.34c6ceb3f373a078c98d.js"></script><script type="text/javascript" src="/dist/app.e727de87a36320747143.js"></script></body>
+</html>

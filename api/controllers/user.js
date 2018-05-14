@@ -1,5 +1,7 @@
 import { SuccessResponse } from '../utils';
-const config = require('../../sweetiebird');
+import path from 'path';
+
+const config = require(path.resolve(__dirname, '../../sweetiebird'));
 
 class UserController {
   static async publicGetUser(req, res) {

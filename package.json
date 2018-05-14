@@ -1,7 +1,7 @@
 {
-  "name": "ultimate-boilerplate",
+  "name": "sweetiebird",
   "version": "1.0.0",
-  "description": "my ultimate boilerplate setup",
+  "description": "sweetiebird modular store for games and artists",
   "main": "index.js",
   "scripts": {
     "clean-build": "rimraf dist/",

@@ -6,21 +6,13 @@ let db;
 function initDatabase() {
   if (db) return;
 
-  const env = process.env.NODE_ENV;
+  const privateKey = process.env.FB_SERVICE_ACCOUNT;
 
-  let credential;
-  if (env === 'development') {
-    const serviceAccount = require('../../sweetiebird-firebase');
-    credential = admin.credential.cert(serviceAccount);
-  } else {
-    const certFromSecret = process.env.FB_SERVICE_ACCOUNT;
-    const privateKey = Buffer.from(certFromSecret, 'base64').toString();
-    credential = admin.credential.cert({
-      projectId: process.env.FB_PROJECT_ID,
-      clientEmail: process.env.FB_CLIENT_EMAIL,
-      privateKey,
-    });
-  }
+  const credential = admin.credential.cert({
+    projectId: process.env.FB_PROJECT_ID,
+    clientEmail: process.env.FB_CLIENT_EMAIL,
+    privateKey,
+  });
 
   admin.initializeApp({
     credential,

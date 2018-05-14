@@ -39,6 +39,7 @@ config.devServer = {
   port: 1337,
   hot: true,
   publicPath: '/',
+  disableHostCheck: true,
   historyApiFallback: true,
 };
 

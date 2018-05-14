@@ -62,8 +62,7 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1",
-    "shawwn-candy": "^1.0.1"
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.3",

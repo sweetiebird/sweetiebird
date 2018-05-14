@@ -32,6 +32,7 @@ config.output.filename = 'dist/[name].[hash].js';
 config.devServer = {
   proxy: {
     '/api': 'http://localhost:3000',
+    '/users': 'http://localhost:3000'
   },
   contentBase: DIST_FOLDER,
   compress: true,

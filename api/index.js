@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 
 // routers
 import router from './routes';
+import publicRouter from './publicRoutes';
 
 // ===========
 // express
@@ -45,6 +46,7 @@ module.exports = () => {
 
   // register route handlers
   app.use('/api', router);
+  app.use('/users', publicRouter);
 
   // serve the index.html over all unmatched Routes.js
   app.get('*', (req, res) => {

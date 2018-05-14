@@ -38,15 +38,17 @@ class FirebaseService {
   }
 
   static async saveUserPurchase(userId, purchase, product, guid) {
-    const purchaseId = await FirebaseService.savePurchase(purchase, product, guid);
+    initDatabase();
+
+    const purchaseId = await FirebaseService.savePurchase(userId, purchase, product, guid);
     await db.ref(`/users/${userId}/purchases`).push({ payment: purchase, product, guid });
   }
 
-  static async savePurchase(purchase, product, guid) {
+  static async savePurchase(userId, purchase, product, guid) {
     initDatabase();
 
     const newPurchaseKey = db.ref('purchases').push().key;
-    await db.ref(`/purchases/${newPurchaseKey}`).update({ payment: purchase, product, guid });
+    await db.ref(`/purchases/${newPurchaseKey}`).update({ userId, payment: purchase, product, guid });
 
     return newPurchaseKey;
   }

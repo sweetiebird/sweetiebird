@@ -19,7 +19,7 @@ class ProductPage extends React.Component {
     return (
       <div className={styles.productPage}>
         <h1>{product.title}</h1>
-        <Carousel images={product.screenshots} />
+        <Carousel videos={product.videos} images={product.screenshots} />
         <p>{product.description}</p>
         <h3>Offerings:</h3>
         {product.offerings !== undefined &&product.offerings.map((offering, idx) => (

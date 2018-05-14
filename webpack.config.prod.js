@@ -38,12 +38,6 @@ config.plugins = [
       PP_CLIENT_SANDBOX: JSON.stringify('Af9lKt1UI_oRIYUXG3UPR5fFbrLy-mvSnFsyuBaXAX48-Diu4HQS6jzMhSK4UqIrNPQb7SY7VsweodqX'),
     },
   }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false,
-    },
-    sourceMap: true,
-  }),
   new HtmlWebpackPlugin({ // also generate an index.html
     filename: 'index.html',
     template: 'client/static/html/index.ejs',

@@ -6,7 +6,6 @@ class ProductController {
     const { productId } = req.params;
     const prodConfig = await ProductService.getProductConfig(productId);
     const testVal = await FirebaseService.getTest();
-    console.log(testVal);
     return SuccessResponse(res, prodConfig);
   }
 }

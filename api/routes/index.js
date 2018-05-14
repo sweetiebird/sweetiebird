@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import authRouter from './auth';
+import productRouter from './product';
 
 const router = Router();
 
-router.use('/auth', authRouter);
+router.use('/products', productRouter);
 
 router.get('/ping', (req, res) => {
   res.status(200).send('pong');

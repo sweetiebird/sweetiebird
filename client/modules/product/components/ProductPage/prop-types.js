@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
 export default {
-  isAuthenticated: PropTypes.bool,
+  product: PropTypes.object,
   isFetching: PropTypes.bool,
 };

@@ -1,7 +1,7 @@
-import auth from '../auth/sagas';
+import product from '../product/sagas';
 
 export default function* rootSaga() {
   yield [
-    auth(),
+    product(),
   ];
 }

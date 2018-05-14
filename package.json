@@ -12,7 +12,7 @@
     "build-production": "npm run clean-build && npm run build-production-client && npm run build-api && npm run build-common",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --host 0.0.0.0 & \n npm run start-dev",
     "lint": "./node_modules/.bin/eslint",
-    "start": "node dist/index.js",
+    "start": "babel-node index.js",
     "start-dev": "cross-env NODE_ENV=development nodemon index.js --config nodemon.json --exec 'babel-node'",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -50,6 +50,7 @@
     "jsonwebtoken": "^8.1.0",
     "lodash": "^4.17.4",
     "moment": "^2.20.1",
+    "package-json": "^4.0.1",
     "passport": "^0.4.0",
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
@@ -61,7 +62,8 @@
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "shawwn-candy": "^1.0.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.3.3",

@@ -1,31 +1,34 @@
 import * as constants from './constants';
 
-export const name = 'auth';
+export const name = 'product';
 
 const initialState = {
-  isAuthenticated: false,
+  product: {},
   isFetching: false,
+  error: null,
 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case constants.USER_LOGIN_REQUEST:
+    case constants.PRODUCT_REQUEST:
       return {
         ...state,
         isFetching: true,
       };
 
-    case constants.USER_LOGIN_SUCCESS:
+    case constants.PRODUCT_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        isAuthenticated: true,
+        product: action.payload.product,
+        error: null,
       };
 
-    case constants.USER_LOGIN_FAILURE:
+    case constants.PRODUCT_FAILURE:
       return {
         ...state,
         isFetching: false,
+        error: action.payload.message,
       };
 
     default:

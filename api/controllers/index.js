@@ -1,1 +1,1 @@
-export { default as AuthController } from './auth';
+export { default as ProductController } from './product';

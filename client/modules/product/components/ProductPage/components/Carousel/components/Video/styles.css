@@ -1,10 +1,9 @@
-.image {
+.video {
     width: 100%;
-    max-width: 300px;
     height: auto;
 }
 
-.image img {
+.video iframe {
     display: block;
     width: 100%;
     max-width: 100%;

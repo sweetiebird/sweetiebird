@@ -12,7 +12,7 @@ class Video extends React.Component {
     const { v } = qs.parse(src.split('?')[1]);
 
     return (
-      <div className={styles.image}>
+      <div className={styles.video}>
         {
           src.length > 0 &&
             <YouTube videoId={v} opts={{ playerVars: { autoplay } }} />

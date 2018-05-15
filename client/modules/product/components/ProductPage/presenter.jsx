@@ -43,19 +43,29 @@ class ProductPage extends React.Component {
     const { product } = this.props;
     return (
       <div className={styles.productPage}>
-        <h1>{product.title}</h1>
-        <Carousel videos={product.videos} images={product.screenshots} />
-        <p>{product.description}</p>
-        <h3>Offerings:</h3>
-        {product.offerings !== undefined &&product.offerings.map((offering, idx) => (
-          <Offering
-            guid={offering.guid}
-            onPayment={this.saveUserPayment}
-            offeringIndex={idx}
-            title={offering.title}
-            price={offering.price}
-            key={`offering-${idx}`} />
-        ))}
+        <h2>{product.title}</h2>
+
+        <div className={styles.carousel}>
+          <Carousel videos={product.videos} images={product.screenshots} />
+        </div>
+
+        <div className={styles.description}>
+          <h3 className={styles.heading}>About</h3>
+          <p>{product.description}</p>
+        </div>
+
+        <div className={styles.offerings}>
+          <h3 className={styles.heading}>Offerings</h3>
+          {product.offerings !== undefined &&product.offerings.map((offering, idx) => (
+            <Offering
+              guid={offering.guid}
+              onPayment={this.saveUserPayment}
+              offeringIndex={idx}
+              title={offering.title}
+              price={offering.price}
+              key={`offering-${idx}`} />
+          ))}
+        </div>
       </div>
     );
   }

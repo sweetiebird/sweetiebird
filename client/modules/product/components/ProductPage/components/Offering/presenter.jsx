@@ -36,7 +36,7 @@ class Offering extends React.Component {
             id={paypalId}
             amount={paypalAmount} />
         </div>
-        <hr />
+        <hr className={styles.rule} />
       </React.Fragment>
     );
   }
